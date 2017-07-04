@@ -102,5 +102,5 @@ function refreshAll() {
     refreshTable(trainArray);
 }
 
-var intervalID = setInterval(refreshAll, 60000);
+var intervalID = setInterval(refreshAll, 15000);
 
