@@ -1,0 +1,8 @@
+.container .jumbotron {
+    padding: 5px;
+    border-radius: 0px 0px 6px 6px;
+}
+
+.removeThis {
+    font-size: 8px;
+}
