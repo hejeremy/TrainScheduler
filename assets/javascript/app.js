@@ -53,7 +53,7 @@ function generateNewRow(inputObj, index) {
         arrivalTime = moment().add(eta, 'minutes').format('HH:mm');
     }
 
-    if (eta === 0) {
+    if (eta === 0 || eta === parseInt(inputObj.frequency)) {
         eta = 'Arrived';
     }
 
