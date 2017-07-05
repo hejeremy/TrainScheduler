@@ -6,3 +6,7 @@
 .removeThis {
     font-size: 8px;
 }
+
+#clearDatabase {
+    visibility: hidden;
+}
