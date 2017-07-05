@@ -13,6 +13,7 @@ var database = firebase.database().ref('trainScheduler');
 
 var trainArray = [];
 
+//Button to submit new train form
 $('#submit').on('click', function() {
     var routeName = $('#routeName').val().trim();
     var station = $('#station').val().trim();
@@ -29,12 +30,14 @@ $('#submit').on('click', function() {
     database.set(trainArray);
 });
 
+//Used during testing to quickly clear Firebase of stored objects
 $('#clearDatabase').on('click', function() {
     trainArray = [];
     database.set(trainArray);
     location.reload();
 });
 
+//For generating table rows
 function generateNewRow(inputObj, index) {
     var newTBody = $('<tbody>');
     var newRow = $('<tr>');
@@ -70,6 +73,7 @@ function generateNewRow(inputObj, index) {
     $('#employeeTable').append(newTBody);
 }
 
+//Remove row from table
 $(document).on('click', '.removeThis', function() {
     var removeIndex = parseInt($(this).val());
     console.log(trainArray.splice(removeIndex, 1));
@@ -93,14 +97,17 @@ database.on('value', function(snapshot) {
     console.log("Error handled" + err.code);
 });
 
+//Refreshes table display
 function refreshTable(inputArray) {
     $('#employeeTable tbody').empty();
     trainArray.forEach(generateNewRow);
 }
 
+//Frefreshes everything, still pending if it will have extra use
 function refreshAll() {
     refreshTable(trainArray);
 }
 
+//Refreshes table display every 5 seconds
 var intervalID = setInterval(refreshAll, 5000);
 
